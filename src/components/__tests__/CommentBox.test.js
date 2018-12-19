@@ -1,0 +1,40 @@
+import React from 'react';
+import { mount } from 'enzyme';
+// we used mount arbitarily in this case, could have just as easily used shallow
+import CommentBox from 'components/CommentBox';
+
+let wrapped;
+beforeEach(() => {
+  wrapped = mount(< CommentBox />);
+})
+
+afterEach(() => {
+  wrapped.unmount(wrapped);
+})
+
+it('has a text area and a button', () => {
+  console.log('LENGTH',  wrapped.find('textarea').length)
+  expect(wrapped.find('textarea').length).toEqual(1);
+  expect(wrapped.find('button').length).toEqual(1);
+})
+
+describe('the text area', () => {
+  beforeEach(() => {
+    wrapped.find('textarea').simulate('change', {
+      target: {value: 'new comment'}
+    });
+    wrapped.update();
+  })
+
+  it('has a text area that users can type in', () => {
+    expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
+  })
+
+  it('when input is submitted textarea is emptied', () => {
+    // while this line below is not necessary, we should have included it if we had not written the previous test that tests exactly that
+    // expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
+    wrapped.find('form').simulate('submit');
+    wrapped.update();
+    expect(wrapped.find('textarea').prop('value')).toEqual('')
+  }) 
+})
