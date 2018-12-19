@@ -16,7 +16,7 @@ class CommentBox extends React.Component {
   }
 
   handleSubmit(e) {
-    // Write a test that mak es sure text area is empty when form is submitted
+    // Write a test that makes sure text area is empty when form is submitted
     e.preventDefault();
     this.setState({comment: ""})
   }
