@@ -1,3 +1,18 @@
+## Docs and other configuration issues
+
+.env file and adding NODE_PATH=src/ was not working to reset absolute paths to something more manageable so I physically had to change the package.json scripts like so:
+
+"start": "NODE_PATH=src/ react-scripts start",
+"build": "NODE_PATH=src/ react-scripts build",
+"test": "NODE_PATH=src/ react-scripts test --env=jsdom --verbose=false",
+"eject": "NODE_PATH=src/ react-scripts eject"
+
+I also had to add `--env=jsdom` in order to work with jest plus `--verbose` in order to see the actual descriptions of the test when i ran `npm run test`, otherwise no descriptions were coming up. To see the results of console.log in the tests you should replace:
+"test": "NODE_PATH=src/ react-scripts test --env=jsdom --verbose" with "test": "NODE_PATH=src/ react-scripts test --env=jsdom"
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
