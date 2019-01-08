@@ -1,7 +1,8 @@
 import React from 'react';
-import {Provider } from 'react-redux';
-import {createStore } from 'redux';
+import { Provider } from 'react-redux';
+import {createStore, applyMiddleware } from 'redux';
 import reducers from 'reducers';
+import reduxPromise from 'redux-promise';
 
 // export default (props) => {
 //   return (
@@ -13,9 +14,16 @@ import reducers from 'reducers';
 // }
 
 // object destructuring courtesy of ES6
-export default ({children, initialState = {}}) => {
+export default ({children, initialState = {} }) => {
+  // with reduxPromise middlewar we have taught redux how to deal with async action creators
+  const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(reduxPromise)
+  );
+
   return (
-    <Provider store={createStore(reducers, initialState)}>
+    <Provider store={store}>
       {children}
       {/* react construct allows us to take the component we create and wrap other components  */}
     </Provider>
