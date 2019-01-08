@@ -2,14 +2,19 @@ import React from 'react';
 import { mount } from 'enzyme';
 // we used mount arbitarily in this case, could have just as easily used shallow
 import CommentBox from 'components/CommentBox';
+import Root from 'Root';
 
 let wrapped;
 beforeEach(() => {
-  wrapped = mount(< CommentBox />);
+  wrapped = mount(
+    <Root>
+      < CommentBox />
+    </Root>
+  );
 })
 
 afterEach(() => {
-  wrapped.unmount(wrapped);
+  wrapped.unmount();
 })
 
 it('has a text area and a button', () => {
@@ -36,5 +41,5 @@ describe('the text area', () => {
     wrapped.find('form').simulate('submit');
     wrapped.update();
     expect(wrapped.find('textarea').prop('value')).toEqual('')
-  }) 
+  })
 })
