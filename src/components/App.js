@@ -3,11 +3,12 @@ import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
+import * as actions from 'actions';
 
 class App extends React.Component {
 
   renderButton() {
-    return this.props.auth ? <button>Log out</button> : <button>Log In</button>
+    return this.props.auth ? <button onClick={() => this.props.changeAuth(false)}>Log out</button> : <button onClick={() => this.props.changeAuth(true)}>Log In</button>
   }
 
   renderHeader() {
@@ -26,6 +27,7 @@ class App extends React.Component {
     )
   }
 
+  // need exact prop for root route because technically /post matches /, which will then render both components
   render() {
     return (
       <Fragment>
@@ -41,4 +43,4 @@ function mapStateToProps(state) {
   return {auth: state.auth}
 }
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, actions)(App);
