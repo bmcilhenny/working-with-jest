@@ -25,6 +25,7 @@ class CommentBox extends React.Component {
     this.setState({comment: ""})
   }
 
+  // add className to button for easier integration test simulation
   render() {
     return (
       <div>
@@ -35,7 +36,7 @@ class CommentBox extends React.Component {
           <button>Submit Comment</button>
         </div>
         </form>
-        <button onClick={this.props.fetchComments}>Fetch Comments</button>
+        <button className="fetch-comments" onClick={this.props.fetchComments}>Fetch Comments</button>
       </div>
 
     )
