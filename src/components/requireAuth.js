@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export default (childComponent) => {
+export default (ChildComponent) => {
   class ComposedComponent extends React.Component {
 
     // component just got rendered for first time
@@ -22,10 +22,10 @@ export default (childComponent) => {
       }
     }
 
+    // must add ...this.props because the connect function maps mapStateToProps and action creators to props
     render() {
       return (
-        <childComponent {...this.props}/>
-        // must add ...this.props because the connect function maps mapStateToProps and action creators to props
+        <ChildComponent {...this.props}/>
       )
     }
   }
