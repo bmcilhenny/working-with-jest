@@ -7,9 +7,12 @@ import ReactDOM from 'react-dom';
 // we don't need this anymore cause of Root component handles all that, our tests will now work as long as we wrap our components in tests files with Root
 import Root from 'Root';
 import App from 'components/App';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <Root>
-    <App />
+    <BrowserRouter>
+      <Route path='/' component={App} />
+    </BrowserRouter>
   </Root>
   , document.querySelector('#root'))
