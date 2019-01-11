@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // we used mount arbitarily in this case, could have just as easily used shallow
-import CommentBox from 'components/CommentBox';
+import { CommentBox } from 'components/CommentBox';
 import Root from 'Root';
 
 let wrapped;

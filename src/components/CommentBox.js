@@ -44,4 +44,5 @@ class CommentBox extends React.Component {
   }
 };
 
+export { CommentBox };
 export default connect(null, actions)(requireAuth(CommentBox));
