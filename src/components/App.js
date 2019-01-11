@@ -43,4 +43,6 @@ function mapStateToProps(state) {
   return {auth: state.auth}
 }
 
+export { App };
+
 export default connect(mapStateToProps, actions)(App);

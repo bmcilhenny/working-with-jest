@@ -30,4 +30,6 @@ class CommentList extends React.Component {
 function mapStateToProps(state) {
   return {comments: state.comments}
 }
+
+export { CommentList };
 export default connect(mapStateToProps)(CommentList);

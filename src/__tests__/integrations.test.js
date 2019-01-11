@@ -30,7 +30,7 @@ it('can fetch a list of comments and display them', (done) => {
   // find the fetch comments button and click
   wrapped.find('.fetch-comments').simulate('click');
   // expect to find a list of comments
-  // without a puse currently getting 0, because Jest is running react project in the fake jsdom, were not actually making a network request so you cant call .data.map(comment) on something undefined
+  // without a pause currently getting 0, because Jest is running react project in the fake jsdom, were not actually making a network request so you cant call .data.map(comment) on something undefined
   // must introduce a tiny pause
 
   // setTimeout(() => {
