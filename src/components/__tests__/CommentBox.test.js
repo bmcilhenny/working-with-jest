@@ -2,13 +2,14 @@ import React from 'react';
 import { mount } from 'enzyme';
 // we used mount arbitarily in this case, could have just as easily used shallow
 import { CommentBox } from 'components/CommentBox';
+import { saveComment } from 'actions';
 import Root from 'Root';
 
 let wrapped;
 beforeEach(() => {
   wrapped = mount(
     <Root>
-      <CommentBox />
+      <CommentBox saveComment={saveComment}/>
     </Root>
   );
 })
