@@ -17,4 +17,11 @@ export default ({dispatch}) => (next) => (action) => {
     // if it doesn't have a payload, or checking if .then, can only call .then on a promise
     return (next(action))
   }
+
+  // if promise wait to get its data then dispatch the data
+  action.payload.then(function(resp) {
+    const newAction = {...action, payload: resp };
+    dispatch(newAction)
+    // going to send our newAction through all the middlewares so that we don't have to organize middlewares, it just gets sent through them all
+  })
 }
