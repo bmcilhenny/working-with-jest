@@ -14,4 +14,4 @@
 - Dependencies
   - tv4 (tiny validator 4)
     - intended to take some data, a json schema and validate the data
-    - generate the json schema at jsonschema.net, add it to a file and import it into the middleware
+    - generate the json schema at (https://jsonschema.net/), add it to a file and import it into the middleware
