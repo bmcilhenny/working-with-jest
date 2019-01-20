@@ -12,7 +12,7 @@
 export default ({dispatch}) => (next) => (action) => {
   // check if the action has a promise on the payload property of the action
   // if it does, wait for it to resolve
-  // if it doesnt, send action on to next middleware
+  // if it doesnt, send action on to next middleware ( in this case we don't have one)
   if (!action.payload || !action.payload.then ) {
     // if it doesn't have a payload, or checking if .then, can only call .then on a promise
     return (next(action))

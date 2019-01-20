@@ -10,3 +10,8 @@
 
 - I also had to add `--env=jsdom` in order to work with jest plus `--verbose` in order to see the actual descriptions of the test when i ran `npm run test`, otherwise no descriptions were coming up. To see the results of console.log in the tests you should replace:
 "test": "NODE_PATH=src/ react-scripts test --env=jsdom --verbose" with "test": "NODE_PATH=src/ react-scripts test --env=jsdom"
+
+- Dependencies
+  - tv4 (tiny validator 4)
+    - intended to take some data, a json schema and validate the data
+    - generate the json schema at jsonschema.net, add it to a file and import it into the middleware
